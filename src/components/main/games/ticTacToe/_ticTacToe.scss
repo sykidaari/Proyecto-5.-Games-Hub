@@ -1,6 +1,6 @@
 @import '../../../../global';
 
-#ticTacToe {
+#tic-tac-toe {
   #squares-grid {
     display: grid;
     grid-template: repeat(3, 100px) / repeat(3, 100px);

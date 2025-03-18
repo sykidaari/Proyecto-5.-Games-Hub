@@ -2,7 +2,12 @@ export const data = {
   games: [
     {
       name: 'Tic-Tac-Toe',
-      id: 'ticTacToe',
+      id: 'tic-tac-toe',
+      options: [
+        { name: 'Normal mode', id: 'normal-mode' },
+        { name: 'Hard mode', id: 'hard-mode' },
+        { name: 'Two Players', id: 'two-players' }
+      ],
       gameData: {
         squares: [],
         unplayedSquares: [],
