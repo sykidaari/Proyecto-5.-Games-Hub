@@ -1,0 +1,35 @@
+@import './global';
+
+@font-face {
+  font-family: Manrope;
+  font-style: normal;
+  src: url('/public/assets/fonts/Manrope/Manrope-VariableFont_wght.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  font-weight: 400;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $main-font;
+
+  background-color: $theme-color-2;
+  color: $theme-color-1;
+
+  #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+  }
+}

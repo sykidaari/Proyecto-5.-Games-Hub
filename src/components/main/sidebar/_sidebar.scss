@@ -1,0 +1,10 @@
+@import '../../../global';
+
+#sidebar {
+  justify-self: flex-end;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: $spacing-M;
+}

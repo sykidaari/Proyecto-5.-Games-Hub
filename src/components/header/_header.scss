@@ -1,0 +1,26 @@
+@import '../../global';
+
+header {
+  background-color: $theme-color-4;
+  height: 50px;
+
+  box-shadow: 0 1px $spacing-SM 0 $theme-color-4;
+
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+
+  nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    a {
+      font-size: $font-SM;
+      font-weight: 800;
+      margin-left: $spacing-S;
+      padding: $spacing-XXS;
+      border: 1px solid $theme-color-1;
+    }
+  }
+}

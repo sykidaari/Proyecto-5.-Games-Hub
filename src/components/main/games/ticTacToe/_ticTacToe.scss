@@ -1,0 +1,54 @@
+@import '../../../../global';
+
+#ticTacToe {
+  #squares-grid {
+    display: grid;
+    grid-template: repeat(3, 100px) / repeat(3, 100px);
+    gap: $spacing-XS;
+
+    background-color: $theme-color-2;
+    border-radius: $spacing-XS;
+    padding: $spacing-XS;
+
+    justify-content: center;
+    align-content: center;
+
+    .square-button {
+      height: 100%;
+      width: 100%;
+
+      background-color: $theme-color-3;
+      border-radius: $spacing-XS;
+      box-shadow: inset 0 0 $spacing-XXS 0 $theme-color-4;
+
+      font-size: $font-S;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      scale: 98%;
+
+      transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out,
+        box-shadow 0.5s ease-in-out, color 0.5s ease-in-out,
+        background-color 0.5s ease-in-out, color 0.5s ease-in-out,
+        scale 0.5s ease-in-out;
+
+      &:disabled {
+        cursor: default;
+        scale: 1;
+      }
+    }
+    .X {
+      color: $theme-color-2;
+      background-color: #61df83a2;
+      color: #b0efc0;
+      box-shadow: inset 0 0 $spacing-XXS 0 #b0efc0;
+    }
+
+    .O {
+      background-color: #df8295bd;
+      color: #efc0ca;
+      box-shadow: inset 0 0 $spacing-XXS 0 #efc0ca;
+    }
+  }
+}

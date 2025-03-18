@@ -1,0 +1,50 @@
+@import '../../../global';
+
+#games {
+  height: 350px;
+
+  ul {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    border-radius: $spacing-XXS;
+
+    box-shadow: inset 0 0 2px 0px $theme-color-1;
+    background-color: $theme-color-3;
+
+    position: relative;
+
+    li {
+      height: 350px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      width: 100%;
+
+      .game-div {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: $spacing-XXS;
+
+        .game-menu {
+          position: absolute;
+
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
