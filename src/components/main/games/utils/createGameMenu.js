@@ -9,9 +9,12 @@ export const createGameMenu = (i) => {
     id: `${game.id}-menu`
   });
 
+  menuDiv.dataset.menu = 'true';
+
   const title = createAndAppendChild(menuDiv, 'h2', {
     innerText: data.games[i].name
   });
 
+  console.log('menu created');
   createGameOptions(i, menuDiv);
 };

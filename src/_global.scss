@@ -10,6 +10,8 @@ $theme-color-3: #222222;
 $theme-color-4: #b700ff;
 $theme-color-5: #00ecff;
 
+$menu-color: #db82ff39;
+
 // FONT SIZES
 $font-XXS: 10px;
 $font-XS: 15px;
@@ -31,7 +33,3 @@ $spacing-ML: 30px;
 $spacing-L: 35px;
 $spacing-XL: 40px;
 $spacing-XXL: 45px;
-
-// * MIXINS
-@mixin centeredFlexBox {
-}

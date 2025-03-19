@@ -2,8 +2,8 @@ import { gameData } from '../ticTacToe';
 import { checkWinOrDraw } from './checkWinOrDraw';
 import { endGame } from './endGame';
 
-export const playerMove = (square, button) => {
-  square.status = 'X';
+export const playerMove = (squareStatus, square, button) => {
+  square.status = squareStatus;
   button.innerText = square.status;
   button.classList.add(square.status);
 
@@ -13,5 +13,5 @@ export const playerMove = (square, button) => {
     (square) => square.status === null
   );
 
-  checkWinOrDraw('X');
+  checkWinOrDraw(square.status);
 };

@@ -39,6 +39,12 @@
         border-radius: $spacing-XXS;
 
         .game-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: $spacing-S;
+
           z-index: 10;
           backdrop-filter: blur(1px);
           -webkit-backdrop-filter: blur(1px);
@@ -46,7 +52,38 @@
 
           inset: $spacing-XXS;
 
-          background-color: #db82ff39;
+          background-color: $menu-color;
+
+          h2 {
+            font-size: $font-L;
+            color: $theme-color-5;
+            font-weight: 800;
+
+            padding: $spacing-XS;
+            background-color: $theme-color-3;
+            box-shadow: 0 0 5px 0 $theme-color-5;
+            border-radius: $spacing-S;
+          }
+        }
+        .options {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: $spacing-XXS;
+
+          button {
+            font-size: $font-XS;
+            color: $theme-color-2;
+            background-color: $theme-color-1;
+            padding: $spacing-XXS;
+            border-radius: $spacing-XS;
+            box-shadow: 0 0 5px 0 $theme-color-4;
+
+            &:hover {
+              background-color: $theme-color-5;
+            }
+          }
         }
       }
     }

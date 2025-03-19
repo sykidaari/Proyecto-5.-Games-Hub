@@ -11,5 +11,5 @@ export const ticTacToe = () => {
   getGameDiv(0);
   gameMenu();
   createGame();
-  match();
+  // match();
 };

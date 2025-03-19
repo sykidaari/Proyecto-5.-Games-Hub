@@ -4,9 +4,24 @@ export const data = {
       name: 'Tic-Tac-Toe',
       id: 'tic-tac-toe',
       options: [
-        { name: 'Normal mode', id: 'normal-mode' },
-        { name: 'Hard mode', id: 'hard-mode' },
-        { name: 'Two Players', id: 'two-players' }
+        {
+          name: 'Normal mode',
+          id: 'normal-mode',
+          function: 'match',
+          param: 'normal'
+        },
+        {
+          name: 'Hard mode',
+          id: 'hard-mode',
+          function: 'match',
+          param: 'hard'
+        },
+        {
+          name: 'Two Players',
+          id: 'two-players',
+          function: 'match',
+          param: 'two'
+        }
       ],
       gameData: {
         squares: [],

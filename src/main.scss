@@ -31,5 +31,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100svh;
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
   }
 }
