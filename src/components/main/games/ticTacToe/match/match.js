@@ -1,3 +1,4 @@
+import { game } from '../../utils/getGameDiv';
 import { gameData } from '../ticTacToe';
 import { computerMove } from './computerMove';
 import { playerMove } from './playerMove';
@@ -14,11 +15,14 @@ export const match = (mode) => {
         if (mode === 'two') {
           playerMove(currentPlayer, square, button);
           currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+          button.classList.add(mode);
         } else {
           playerMove('X', square, button);
-          setTimeout(() => {
-            computerMove('O', mode);
-          }, 500);
+          if (!gameData.winner) {
+            setTimeout(() => {
+              computerMove('O', mode);
+            }, 500);
+          }
         }
       },
       { once: true }

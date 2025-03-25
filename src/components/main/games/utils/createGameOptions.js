@@ -1,6 +1,7 @@
 import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
 import { data } from '../data';
 import { match } from '../ticTacToe/match/match';
+import { resetGame } from './resetGame';
 
 export const createGameOptions = (i, parentTag) => {
   const optionsUl = createAndAppendChild(parentTag, 'ul', {
@@ -21,6 +22,7 @@ export const createGameOptions = (i, parentTag) => {
         parentTag.classList.add('hidden');
       }
 
+      resetGame(i);
       functionMap[option.function](option.param);
     });
   });

@@ -33,3 +33,12 @@ $spacing-ML: 30px;
 $spacing-L: 35px;
 $spacing-XL: 40px;
 $spacing-XXL: 45px;
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

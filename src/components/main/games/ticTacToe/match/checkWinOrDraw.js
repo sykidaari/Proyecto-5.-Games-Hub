@@ -8,8 +8,7 @@ export const checkWinOrDraw = (player) => {
     )
   ) {
     endGame(player);
-  }
-  if (gameData.unplayedSquares.length === 0) {
+  } else if (gameData.unplayedSquares.length === 0) {
     endGame();
   }
 };

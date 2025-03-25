@@ -23,6 +23,11 @@ export const data = {
           param: 'two'
         }
       ],
+      endMenu: {
+        winMessage: ['', 'wins the game!'],
+        drawMessage: "It's a draw!",
+        subMessage: 'Play again?'
+      },
       gameData: {
         squares: [],
         unplayedSquares: [],
@@ -36,7 +41,8 @@ export const data = {
           [2, 5, 8],
           [0, 4, 8],
           [2, 4, 6]
-        ]
+        ],
+        winner: ''
       }
     }
     // {}

@@ -1,24 +1,39 @@
 import { gameData } from '../ticTacToe';
 import { checkWinOrDraw } from './checkWinOrDraw';
-import { endGame } from './endGame';
+import { findWinningMove } from './findWinningMove';
 
 export const computerMove = (squareStatus, mode) => {
   if (gameData.unplayedSquares.length === 0) return;
 
-  console.log(mode);
+  console.log(`Computer playing in mode: ${mode}`);
 
-  const randomIndex = Math.floor(
-    Math.random() * gameData.unplayedSquares.length
-  );
+  let chosenSquare = null;
 
-  const square = gameData.unplayedSquares[randomIndex];
-  const button = gameData.buttons[square.number - 1];
+  if (mode === 'hard') {
+    chosenSquare = findWinningMove('O');
 
-  square.status = squareStatus;
-  button.innerText = square.status;
-  button.classList.add(square.status);
+    if (!chosenSquare) {
+      chosenSquare = findWinningMove('X');
+    }
 
+    if (!chosenSquare && gameData.squares[4].status === null) {
+      chosenSquare = gameData.squares[4];
+    }
+  }
+
+  if (!chosenSquare) {
+    const randomIndex = Math.floor(
+      Math.random() * gameData.unplayedSquares.length
+    );
+    chosenSquare = gameData.unplayedSquares[randomIndex];
+  }
+
+  const button = gameData.buttons[chosenSquare.number - 1];
+
+  chosenSquare.status = squareStatus;
+  button.innerText = chosenSquare.status;
+  button.classList.add(chosenSquare.status);
   button.disabled = true;
 
-  checkWinOrDraw(square.status);
+  checkWinOrDraw(chosenSquare.status);
 };

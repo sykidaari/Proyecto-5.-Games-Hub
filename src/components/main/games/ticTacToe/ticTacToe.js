@@ -1,15 +1,13 @@
 import { data } from '../data';
+import { createGameMenu } from '../utils/createGameMenu';
 import { getGameDiv } from '../utils/getGameDiv';
 import './_ticTacToe.scss';
 import { createGame } from './createGame/createGame';
-import { gameMenu } from './gameMenu/gameMenu';
-import { match } from './match/match';
 
 export const gameData = data.games[0].gameData;
 
 export const ticTacToe = () => {
   getGameDiv(0);
-  gameMenu();
+  createGameMenu(0);
   createGame();
-  // match();
 };
