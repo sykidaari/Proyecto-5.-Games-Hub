@@ -12,8 +12,7 @@ export const sidebar = () => {
   gamesData.games.forEach((game) => {
     const li = createAndAppendChild(ul, 'li');
     const a = createAndAppendChild(li, 'a', {
-      innerText: game.name,
-      href: game.id
+      innerText: game.name
     });
   });
 };

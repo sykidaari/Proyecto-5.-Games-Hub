@@ -1,9 +1,9 @@
-import { gameData } from '../ticTacToe';
-import { checkWinOrDraw } from './checkWinOrDraw';
-import { findWinningMove } from './findWinningMove';
+import { gameData } from '../../ticTacToe';
+import { checkWin } from '../logic/checkWin';
+import { findWinningMove } from '../logic/findWinningMove';
 
 export const computerMove = (squareStatus, mode) => {
-  if (gameData.unplayedSquares.length === 0) return;
+  if (gameData.unplayedSquares.length === 0 || gameData.result) return;
 
   console.log(`Computer playing in mode: ${mode}`);
 
@@ -35,5 +35,5 @@ export const computerMove = (squareStatus, mode) => {
   button.classList.add(chosenSquare.status);
   button.disabled = true;
 
-  checkWinOrDraw(chosenSquare.status);
+  return true;
 };

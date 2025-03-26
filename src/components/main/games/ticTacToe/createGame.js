@@ -1,8 +1,8 @@
-import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
-import { game } from '../../utils/getGameDiv';
-import { gameData } from '../ticTacToe';
+import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
+import { game } from '../utils/getGameDiv';
+import { gameData } from './ticTacToe';
 
-export const createBoard = () => {
+export const createGame = () => {
   const gridDiv = createAndAppendChild(game, 'div', { id: 'squares-grid' });
 
   for (let i = 1; i <= 9; i++) {

@@ -1,29 +1,25 @@
 import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
 import { data } from '../data';
-import { match } from '../ticTacToe/match/match';
-import { resetGame } from './resetGame';
 
 export const createGameOptions = (i, parentTag) => {
   const optionsUl = createAndAppendChild(parentTag, 'ul', {
     className: 'options'
   });
 
-  const functionMap = { match: match };
+  const buttons = [];
 
   data.games[i].options.forEach((option) => {
     const li = createAndAppendChild(optionsUl, 'li');
     const button = createAndAppendChild(li, 'button', {
+      id: option.id,
       innerText: option.name
     });
+    button.dataset.mode = option.mode;
 
-    console.log('options created');
-    button.addEventListener('click', () => {
-      if (parentTag.dataset.menu) {
-        parentTag.classList.add('hidden');
-      }
+    console.log('option created');
 
-      resetGame(i);
-      functionMap[option.function](option.param);
-    });
+    buttons.push(button);
   });
+
+  return buttons;
 };

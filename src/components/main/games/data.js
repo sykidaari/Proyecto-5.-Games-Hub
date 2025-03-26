@@ -7,20 +7,20 @@ export const data = {
         {
           name: 'Normal mode',
           id: 'normal-mode',
-          function: 'match',
-          param: 'normal'
+
+          mode: 'normal'
         },
         {
           name: 'Hard mode',
           id: 'hard-mode',
-          function: 'match',
-          param: 'hard'
+
+          mode: 'hard'
         },
         {
           name: 'Two Players',
           id: 'two-players',
-          function: 'match',
-          param: 'two'
+
+          mode: 'two'
         }
       ],
       endMenu: {
@@ -42,7 +42,7 @@ export const data = {
           [0, 4, 8],
           [2, 4, 6]
         ],
-        winner: ''
+        result: ''
       }
     }
     // {}

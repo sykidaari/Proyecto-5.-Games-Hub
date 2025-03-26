@@ -1,31 +1,16 @@
-import { game } from '../../utils/getGameDiv';
-import { gameData } from '../ticTacToe';
-import { computerMove } from './computerMove';
-import { playerMove } from './playerMove';
+import { moves } from './moves/moves';
+import { checkWin } from './logic/checkWin.js';
+import { checkDraw } from './logic/checkDraw.js';
+import { endGame } from './logic/endGame.js';
 
 export const match = (mode) => {
-  let currentPlayer = 'X';
+  moves(mode, (player) => {
+    const win = checkWin(player);
+    const draw = !win && checkDraw();
 
-  gameData.buttons.forEach((button, i) => {
-    const square = gameData.squares[i];
-
-    button.addEventListener(
-      'click',
-      () => {
-        if (mode === 'two') {
-          playerMove(currentPlayer, square, button);
-          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-          button.classList.add(mode);
-        } else {
-          playerMove('X', square, button);
-          if (!gameData.winner) {
-            setTimeout(() => {
-              computerMove('O', mode);
-            }, 500);
-          }
-        }
-      },
-      { once: true }
-    );
+    if (win || draw) {
+      const result = win ? player : null;
+      endGame(result);
+    }
   });
 };

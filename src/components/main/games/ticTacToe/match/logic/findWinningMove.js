@@ -1,4 +1,4 @@
-import { gameData } from '../ticTacToe';
+import { gameData } from '../../ticTacToe';
 
 export const findWinningMove = (player) => {
   for (const combination of gameData.winningCombinations) {
