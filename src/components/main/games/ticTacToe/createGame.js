@@ -6,13 +6,13 @@ export const createGame = () => {
   gameData.squares = [];
   gameData.buttons = [];
 
-  const gridDiv = createAndAppendChild(game, 'div', { id: 'squares-grid' });
+  const squaresDiv = createAndAppendChild(game, 'div', { id: 'squares-grid' });
 
   for (let i = 1; i <= 9; i++) {
     gameData.squares.push({ number: i, status: null });
   }
   gameData.squares.forEach((square) => {
-    const button = createAndAppendChild(gridDiv, 'button', {
+    const button = createAndAppendChild(squaresDiv, 'button', {
       className: 'square-button',
       id: `square-${square.number}`
     });

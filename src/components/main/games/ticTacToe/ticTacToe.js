@@ -1,11 +1,12 @@
+import './_ticTacToe.scss';
+
 import { data } from '../data';
 
 import { getGameDiv } from '../utils/getGameDiv';
+
 import { createStartMenu } from '../utils/createStartMenu';
 import { createGameOptions } from '../utils/createGameOptions';
 import { createGame } from './createGame';
-
-import './_ticTacToe.scss';
 import { match } from './match/match';
 import { createEndMenu } from '../utils/createEndMenu';
 import { resetGame } from './resetGame';

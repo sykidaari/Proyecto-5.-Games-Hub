@@ -50,9 +50,30 @@ export const data = {
       name: 'Memory',
       id: 'memory',
       function: 'memory',
-      options: [{ name: 'Start', id: 'start' }],
-      endMenu: {},
-      gameData: {}
+      options: [
+        { name: 'Easy mode', id: 'easy-mode', mode: 'easy' },
+        { name: 'Hard mode', id: 'hard-mode', mode: 'hard' }
+      ],
+      endMenu: {
+        winMessage: ['You win with', '', 'moves!'],
+        subMessage: 'Play again?'
+      },
+      gameData: {
+        cards: [
+          { id: 'dog', emoji: '🐶' },
+          { id: 'cat', emoji: '🐱' },
+          { id: 'mouse', emoji: '🐭' },
+          { id: 'rabbit', emoji: '🐰' },
+          { id: 'fox', emoji: '🦊' },
+          { id: 'bear', emoji: '🐻' },
+          { id: 'panda', emoji: '🐼' },
+          { id: 'tiger', emoji: '🐯' },
+          { id: 'lion', emoji: '🦁' },
+          { id: 'cow', emoji: '🐮' },
+          { id: 'pig', emoji: '🐷' },
+          { id: 'frog', emoji: '🐸' }
+        ]
+      }
     }
   ]
 };

@@ -1,0 +1,37 @@
+@import '../../../../global';
+
+#memory {
+  #cards-grid {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: $spacing-XXS;
+
+    width: 100%;
+    height: 100%;
+
+    .card {
+      width: 50px;
+      height: 50px;
+
+      font-size: $font-M;
+      text-shadow: 0 0 3px $theme-color-4;
+
+      background-color: $theme-color-2;
+      box-shadow: inset 0 0 $spacing-XXS 0 $theme-color-4;
+      border-radius: $spacing-XXS;
+
+      transition: scale 0.5s ease-in-out;
+
+      &:hover {
+        scale: 1.1;
+      }
+    }
+  }
+  .easy {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .hard {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
