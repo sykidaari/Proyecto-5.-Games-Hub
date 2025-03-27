@@ -2,24 +2,30 @@ import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
 import { data } from '../data';
 
 export const createGameOptions = (i, parentTag) => {
-  const optionsUl = createAndAppendChild(parentTag, 'ul', {
-    className: 'options'
-  });
+  const optionsUl = document.querySelector('.options');
 
-  const buttons = [];
-
-  data.games[i].options.forEach((option) => {
-    const li = createAndAppendChild(optionsUl, 'li');
-    const button = createAndAppendChild(li, 'button', {
-      id: option.id,
-      innerText: option.name
+  if (optionsUl) {
+    parentTag.appendChild(optionsUl);
+  } else {
+    const optionsUl = createAndAppendChild(parentTag, 'ul', {
+      className: 'options'
     });
-    button.dataset.mode = option.mode;
 
-    console.log('option created');
+    const buttons = [];
 
-    buttons.push(button);
-  });
+    data.games[i].options.forEach((option) => {
+      const li = createAndAppendChild(optionsUl, 'li');
+      const button = createAndAppendChild(li, 'button', {
+        id: option.id,
+        innerText: option.name
+      });
+      button.dataset.mode = option.mode;
 
-  return buttons;
+      console.log('option created');
+
+      buttons.push(button);
+    });
+
+    return buttons;
+  }
 };

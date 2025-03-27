@@ -14,6 +14,4 @@ export const games = () => {
       id: game.id
     });
   });
-
-  ticTacToe();
 };

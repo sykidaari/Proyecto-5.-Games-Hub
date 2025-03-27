@@ -1,37 +1,29 @@
 import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
 import { data } from '../data';
-import { createGameOptions } from './createGameOptions';
+
 import { game } from './getGameDiv';
 
-export const createEndMenu = (i, parentTag, player) => {
-  const oldMenu = document.querySelector('.end-menu');
-  if (oldMenu) oldMenu.remove();
+export const createEndMenu = (i, endText) => {
+  let endDiv = document.querySelector('.end-menu');
 
-  const endDiv = createAndAppendChild(parentTag, 'div', {
-    className: 'end-menu',
-    id: `${game.id}-end-menu`
-  });
+  if (!endDiv) {
+    endDiv = createAndAppendChild(game, 'div', {
+      className: 'end-menu',
+      id: `${game.id}-end-menu`
+    });
 
-  endDiv.dataset.menu = 'true';
+    createAndAppendChild(endDiv, 'p', {
+      innerText: endText
+    });
 
-  const endData = data.games[i].endMenu;
-
-  if (player) {
-    endData.winMessage[0] = player;
-
-    const endMessage = createAndAppendChild(endDiv, 'p', {
-      innerText: data.games[i].endMenu.winMessage.join(' ')
+    createAndAppendChild(endDiv, 'p', {
+      innerText: data.games[i].endMenu.subMessage
     });
   } else {
-    const endMessage = createAndAppendChild(endDiv, 'p', {
-      innerText: data.games[i].endMenu.drawMessage
-    });
+    const paragraphs = endDiv.querySelectorAll('p');
+    paragraphs[0].innerText = endText;
+    paragraphs[1].innerText = data.games[i].endMenu.subMessage;
   }
-  const subMessage = createAndAppendChild(endDiv, 'p', {
-    innerText: data.games[i].endMenu.subMessage
-  });
 
-  createGameOptions(i, endDiv);
-
-  console.log('end created');
+  return endDiv;
 };

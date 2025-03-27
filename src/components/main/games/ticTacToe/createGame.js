@@ -3,6 +3,9 @@ import { game } from '../utils/getGameDiv';
 import { gameData } from './ticTacToe';
 
 export const createGame = () => {
+  gameData.squares = [];
+  gameData.buttons = [];
+
   const gridDiv = createAndAppendChild(game, 'div', { id: 'squares-grid' });
 
   for (let i = 1; i <= 9; i++) {

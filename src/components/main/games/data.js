@@ -3,6 +3,7 @@ export const data = {
     {
       name: 'Tic-Tac-Toe',
       id: 'tic-tac-toe',
+      function: 'ticTacToe',
       options: [
         {
           name: 'Normal mode',
@@ -44,7 +45,14 @@ export const data = {
         ],
         result: ''
       }
+    },
+    {
+      name: 'Memory',
+      id: 'memory',
+      function: 'memory',
+      options: [{ name: 'Start', id: 'start' }],
+      endMenu: {},
+      gameData: {}
     }
-    // {}
   ]
 };

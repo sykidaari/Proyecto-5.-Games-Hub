@@ -2,10 +2,8 @@ import { gameData } from '../../ticTacToe';
 import { checkWin } from '../logic/checkWin';
 import { findWinningMove } from '../logic/findWinningMove';
 
-export const computerMove = (squareStatus, mode) => {
-  if (gameData.unplayedSquares.length === 0 || gameData.result) return;
-
-  console.log(`Computer playing in mode: ${mode}`);
+export const computerMove = (player, mode) => {
+  if (gameData.unplayedSquares.length === 0 || gameData.result) return false;
 
   let chosenSquare = null;
 
@@ -30,7 +28,7 @@ export const computerMove = (squareStatus, mode) => {
 
   const button = gameData.buttons[chosenSquare.number - 1];
 
-  chosenSquare.status = squareStatus;
+  chosenSquare.status = player;
   button.innerText = chosenSquare.status;
   button.classList.add(chosenSquare.status);
   button.disabled = true;

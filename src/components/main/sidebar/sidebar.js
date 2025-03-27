@@ -9,10 +9,17 @@ export const sidebar = () => {
   const nav = createAndAppendChild(sidebar, 'nav');
   const ul = createAndAppendChild(nav, 'ul');
 
+  const sideBarAnchors = [];
+
   gamesData.games.forEach((game) => {
     const li = createAndAppendChild(ul, 'li');
     const a = createAndAppendChild(li, 'a', {
       innerText: game.name
     });
+    a.dataset.fn = game.function;
+
+    sideBarAnchors.push(a);
   });
+
+  return sideBarAnchors;
 };
