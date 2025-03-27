@@ -74,7 +74,8 @@ export const data = {
           { id: 'frog', emoji: '🐸' }
         ],
         cardsInPlay: [],
-        flippedCards: []
+        flippedCards: [],
+        movesMade: 0
       }
     }
   ]

@@ -7,6 +7,9 @@ import { getGameDiv } from '../utils/getGameDiv';
 import { createGame } from './createGame';
 import { showCard } from './logic/showCard';
 import { checkMatch } from './logic/checkMatch';
+import { endGame } from './logic/endGame';
+import { createEndMenu } from '../utils/createEndMenu';
+import { resetGame } from './resetGame';
 
 export const gameData = data.games[1].gameData;
 
@@ -24,12 +27,27 @@ export const memory = () => {
         ? currentMenu.classList.remove('hidden')
         : currentMenu.classList.add('hidden');
 
+      resetGame();
+
       createGame(button.dataset.mode);
 
       gameData.cardsInPlay.forEach((card) => {
         card.button.addEventListener('click', () => {
           showCard(card);
           checkMatch();
+
+          const allMatched = gameData.cardsInPlay.every((card) => card.matched);
+
+          if (allMatched) {
+            const endText = endGame();
+            const endMenu = createEndMenu(1, endText);
+
+            if (endMenu.classList.contains('hidden')) {
+              endMenu.classList.remove('hidden');
+            }
+
+            createGameOptions(1, endMenu);
+          }
         });
       });
     })

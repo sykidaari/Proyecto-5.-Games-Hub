@@ -2,6 +2,8 @@
 
 #memory {
   #cards-grid {
+    animation: fade-in 1s ease forwards;
+
     display: grid;
     align-items: center;
     justify-items: center;
