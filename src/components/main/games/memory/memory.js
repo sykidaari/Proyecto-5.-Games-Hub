@@ -1,10 +1,12 @@
-// import './_memory.scss';
+import './_memory.scss';
 
 import { data } from '../data';
 import { createGameOptions } from '../utils/createGameOptions';
 import { createStartMenu } from '../utils/createStartMenu';
 import { getGameDiv } from '../utils/getGameDiv';
 import { createGame } from './createGame';
+import { showCard } from './logic/showCard';
+import { checkMatch } from './logic/checkMatch';
 
 export const gameData = data.games[1].gameData;
 
@@ -23,6 +25,13 @@ export const memory = () => {
         : currentMenu.classList.add('hidden');
 
       createGame(button.dataset.mode);
+
+      gameData.cardsInPlay.forEach((card) => {
+        card.button.addEventListener('click', () => {
+          showCard(card);
+          checkMatch();
+        });
+      });
     })
   );
 };

@@ -22,5 +22,7 @@ export const createGame = (mode) => {
     const cardButton = createAndAppendChild(cardsDiv, 'button', {
       className: 'card'
     });
+
+    gameData.cardsInPlay.push({ button: cardButton, card });
   });
 };

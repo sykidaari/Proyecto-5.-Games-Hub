@@ -9,12 +9,14 @@ home();
 //* CREATE 2 PLAYER MODE
 //* CREATE MENUS
 //* STYLES
+// ! DONE :)
 
 //? GAME 2
 
 //? GAME 3
 
 //? SWITCH BETWEEN GAMES
+// ! DONE, CHECK
 
 //? GEN PAGE STYLES
 

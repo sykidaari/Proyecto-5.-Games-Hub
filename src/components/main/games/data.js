@@ -47,7 +47,7 @@ export const data = {
       }
     },
     {
-      name: 'Memory',
+      name: 'Animal Memory',
       id: 'memory',
       function: 'memory',
       options: [
@@ -72,7 +72,9 @@ export const data = {
           { id: 'cow', emoji: '🐮' },
           { id: 'pig', emoji: '🐷' },
           { id: 'frog', emoji: '🐸' }
-        ]
+        ],
+        cardsInPlay: [],
+        flippedCards: []
       }
     }
   ]

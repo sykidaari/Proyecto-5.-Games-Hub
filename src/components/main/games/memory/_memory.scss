@@ -26,6 +26,10 @@
       &:hover {
         scale: 1.1;
       }
+
+      &:disabled {
+        scale: 1;
+      }
     }
   }
   .easy {
