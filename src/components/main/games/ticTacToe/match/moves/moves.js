@@ -8,12 +8,15 @@ export const moves = (mode, onMove) => {
   gameData.buttons.forEach((button, i) => {
     const square = gameData.squares[i];
 
+    console.log(button);
+
     button.addEventListener(
       'click',
       () => {
         let moveMade = false;
 
         if (mode === 'two') {
+          console.log('im here');
           button.classList.add(mode);
 
           moveMade = playerMove(currentPlayer, square, button);

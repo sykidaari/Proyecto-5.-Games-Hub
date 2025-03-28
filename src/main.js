@@ -11,7 +11,8 @@ home();
 //* STYLES
 // ! DONE :)
 
-//? GAME 2
+//? MEMORY
+//! DONE :)
 
 //? GAME 3
 

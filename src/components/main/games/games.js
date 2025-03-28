@@ -1,7 +1,6 @@
 import { createAndAppendChild } from '../../../utils/createAndAppendChild';
 import { data } from './data';
 import './_games.scss';
-import { ticTacToe } from './ticTacToe/ticTacToe';
 
 export const games = () => {
   const gamesSection = createAndAppendChild('main', 'section', { id: 'games' });
