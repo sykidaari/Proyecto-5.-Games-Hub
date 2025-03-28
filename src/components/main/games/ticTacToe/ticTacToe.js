@@ -16,7 +16,6 @@ export const gameData = data.games[0].gameData;
 export const ticTacToe = () => {
   getGameDiv(0);
   const startMenu = createStartMenu(0);
-
   const optionButtons = createGameOptions(0, startMenu);
 
   createGame();

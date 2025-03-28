@@ -1,0 +1,79 @@
+@import '../../../../global';
+
+#hangman {
+  display: flex;
+  #visual-div {
+    position: relative;
+
+    img {
+      width: 250px;
+      border-radius: $spacing-XXS;
+    }
+
+    #character {
+      position: absolute;
+
+      left: 150px;
+      top: 62px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .character-part {
+        position: absolute;
+      }
+      #character-part-0 {
+        font-size: 25px;
+
+        transform: rotate(140deg);
+      }
+      #character-part-1 {
+        font-size: 25px;
+        top: 24px;
+
+        z-index: 4;
+      }
+      #character-part-2 {
+        font-size: 30px;
+        top: 40px;
+
+        z-index: 3;
+      }
+      #character-part-3 {
+        font-size: 30px;
+        top: 63px;
+
+        z-index: 2;
+      }
+      #character-part-4 {
+        font-size: 17px;
+        top: 88px;
+        left: 1px;
+
+        transform: rotate(30deg);
+      }
+      #character-part-5 {
+        font-size: 17px;
+        top: 88px;
+        right: 1px;
+
+        transform: scaleX(-1) rotate(30deg);
+      }
+      #character-part-6 {
+        font-size: 12px;
+        top: 68px;
+        left: 7px;
+
+        transform: scaleX(-1) rotate(210deg);
+      }
+      #character-part-7 {
+        font-size: 12px;
+        top: 68px;
+        right: 7px;
+
+        transform: rotate((210deg));
+      }
+    }
+  }
+}
