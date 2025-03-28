@@ -19,7 +19,7 @@ export const createGame = (mode) => {
     const partDiv = createAndAppendChild(characterDiv, 'div', {
       innerText: part,
       id: `character-part-${i}`,
-      className: 'character-part'
+      className: 'character-part hidden'
     });
   });
 };
