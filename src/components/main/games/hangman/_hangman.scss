@@ -2,6 +2,9 @@
 
 #hangman {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+
   #visual-div {
     position: relative;
 

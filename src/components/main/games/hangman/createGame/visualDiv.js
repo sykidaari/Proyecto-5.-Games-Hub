@@ -1,9 +1,9 @@
-import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
-import { data } from '../data';
-import { game } from '../utils/getGameDiv';
-import { gameData } from './hangman';
+import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
+import { data } from '../../data';
+import { game } from '../../utils/getGameDiv';
+import { gameData } from '../hangman';
 
-export const createGame = (mode) => {
+export const visualDiv = () => {
   const visualDiv = createAndAppendChild(game, 'div', { id: 'visual-div' });
 
   const gallowsIMG = createAndAppendChild(visualDiv, 'img', {

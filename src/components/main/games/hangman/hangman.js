@@ -3,8 +3,9 @@ import './_hangman.scss';
 import { createGameOptions } from '../utils/createGameOptions';
 import { createStartMenu } from '../utils/createStartMenu';
 import { getGameDiv } from '../utils/getGameDiv';
-import { createGame } from './createGame';
+import { createGame } from './createGame/createGame';
 import { data } from '../data';
+import { level } from './level';
 
 export const gameData = data.games[2].gameData;
 
@@ -13,7 +14,7 @@ export const hangman = () => {
   const startMenu = createStartMenu(2);
   const optionButtons = createGameOptions(2, startMenu);
 
-  createGame();
+  const levelElements = createGame();
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
@@ -22,6 +23,10 @@ export const hangman = () => {
       currentMenu.classList.contains('hidden')
         ? currentMenu.classList.remove('hidden')
         : currentMenu.classList.add('hidden');
+
+      level(button.dataset.mode, levelElements.wordUl);
+
+      console.log(levelElements);
     })
   );
 };
