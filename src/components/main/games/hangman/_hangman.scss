@@ -79,4 +79,114 @@
       }
     }
   }
+  #play-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: $spacing-S;
+
+    h3 {
+      font-size: $font-XS;
+      align-self: center;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 25px;
+        height: 25px;
+
+        border-radius: $spacing-XXS;
+
+        background-color: $theme-color-4;
+        box-shadow: inset 0 0 3px 0 $theme-color-2;
+        border: 1px solid $theme-color-2;
+
+        p {
+          font-size: $font-S;
+          text-transform: uppercase;
+          color: $theme-color-1;
+        }
+      }
+    }
+    form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: $spacing-XXS;
+
+      margin-top: $spacing-M;
+
+      position: relative;
+
+      label {
+        color: $theme-color-1;
+        font-size: $font-XXS;
+
+        position: absolute;
+        right: 0;
+        bottom: 35px;
+      }
+
+      #letter-input {
+        font-size: $font-XS;
+        background-color: $theme-color-2;
+        color: $theme-color-1;
+
+        text-transform: uppercase;
+        text-align: center;
+
+        width: 25px;
+        height: 25px;
+
+        border: 1px solid $theme-color-1;
+
+        border-radius: $spacing-XXS;
+      }
+      #try-button {
+        font-size: $font-XS;
+
+        color: $theme-color-2;
+        background-color: $theme-color-1;
+        border: 1px solid $theme-color-2;
+        border-radius: $spacing-XXS;
+        padding: $spacing-XXS;
+      }
+    }
+    #hint-div {
+      position: relative;
+
+      #hint-button {
+        font-size: $font-XXS;
+
+        color: $theme-color-2;
+        background-color: $theme-color-5;
+        border: 1px solid $theme-color-2;
+        border-radius: $spacing-XXS;
+        padding: $spacing-XXS;
+      }
+      #hint-text {
+        font-size: $font-XXS;
+        color: $theme-color-5;
+
+        position: absolute;
+        right: 0;
+
+        white-space: nowrap;
+
+        border: 1px solid $theme-color-5;
+        padding: $spacing-XXS;
+        border-radius: $spacing-XXS;
+      }
+    }
+  }
 }

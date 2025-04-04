@@ -4,8 +4,6 @@ import { checkDraw } from './logic/checkDraw.js';
 import { endGame } from './logic/endGame.js';
 
 export const match = (mode, gameEnded) => {
-  console.log(mode);
-
   moves(mode, (player) => {
     const win = checkWin(player);
     const draw = !win && checkDraw();

@@ -1,7 +1,7 @@
-import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
-import { gameData } from './hangman';
+import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
+import { gameData } from '../hangman';
 
-export const level = (mode, ul) => {
+export const level = (mode, ul, hintDiv) => {
   console.log('level running in' + mode);
 
   const levels = gameData.levels[mode];
@@ -18,5 +18,12 @@ export const level = (mode, ul) => {
       innerText: letter,
       className: 'hidden'
     });
+    gameData.levelLetters.push(p);
+  });
+
+  const hintText = createAndAppendChild(hintDiv, 'p', {
+    id: 'hint-text',
+    innerText: level.description,
+    className: 'hidden'
   });
 };

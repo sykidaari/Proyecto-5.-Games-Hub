@@ -122,7 +122,8 @@ export const data = {
         characterParts: {
           game: ['🪢', '🤠', '🧥', '👖', '👞', '👞', '🤚', '🤚'],
           end: '💀'
-        }
+        },
+        levelLetters: []
       },
       IMGs: {
         gallow: { src: '/assets/IMGs/hangman_gallows.png', alt: 'gallow' }

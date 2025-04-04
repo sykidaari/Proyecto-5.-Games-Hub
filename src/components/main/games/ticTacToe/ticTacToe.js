@@ -30,7 +30,6 @@ export const ticTacToe = () => {
 
       createGameOptions(0, endMenu);
     }, 500);
-    return true;
   };
 
   optionButtons.forEach((button) =>

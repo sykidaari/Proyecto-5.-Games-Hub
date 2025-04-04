@@ -8,8 +8,6 @@ export const moves = (mode, onMove) => {
   gameData.buttons.forEach((button, i) => {
     const square = gameData.squares[i];
 
-    console.log(button);
-
     button.addEventListener(
       'click',
       () => {
