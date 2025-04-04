@@ -50,32 +50,32 @@
         z-index: 2;
       }
       #character-part-4 {
-        font-size: 17px;
-        top: 88px;
-        left: 1px;
-
-        transform: rotate(30deg);
-      }
-      #character-part-5 {
-        font-size: 17px;
-        top: 88px;
-        right: 1px;
-
-        transform: scaleX(-1) rotate(30deg);
-      }
-      #character-part-6 {
         font-size: 12px;
         top: 68px;
         left: 7px;
 
         transform: scaleX(-1) rotate(210deg);
       }
-      #character-part-7 {
+      #character-part-5 {
         font-size: 12px;
         top: 68px;
         right: 7px;
 
         transform: rotate((210deg));
+      }
+      #character-part-6 {
+        font-size: 17px;
+        top: 88px;
+        left: 1px;
+
+        transform: rotate(30deg);
+      }
+      #character-part-7 {
+        font-size: 17px;
+        top: 88px;
+        right: 1px;
+
+        transform: scaleX(-1) rotate(30deg);
       }
     }
   }

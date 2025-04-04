@@ -15,11 +15,16 @@ export const visualDiv = () => {
     id: 'character'
   });
 
+  const characterParts = [];
+
   gameData.characterParts.game.forEach((part, i) => {
     const partDiv = createAndAppendChild(characterDiv, 'div', {
       innerText: part,
       id: `character-part-${i}`,
       className: 'character-part hidden'
     });
+    characterParts.push(partDiv);
   });
+
+  return characterParts;
 };

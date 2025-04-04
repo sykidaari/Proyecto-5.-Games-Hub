@@ -87,7 +87,8 @@ export const data = {
         { name: 'Hard mode', id: 'hard-mode', mode: 'hard' }
       ],
       endMenu: {
-        winMessage: [],
+        winMessage: 'You guessed correctly, you saved the man',
+        loseMessage: 'You lose, the man died',
         subMessage: 'Play again?'
       },
       gameData: {
@@ -120,9 +121,10 @@ export const data = {
           ]
         },
         characterParts: {
-          game: ['🪢', '🤠', '🧥', '👖', '👞', '👞', '🤚', '🤚'],
+          game: ['🪢', '🤠', '🧥', '👖', '🤚', '🤚', '👞', '👞'],
           end: '💀'
         },
+        partIndex: 0,
         levelLetters: []
       },
       IMGs: {

@@ -6,8 +6,8 @@ import { playDiv } from './playDiv';
 import { visualDiv } from './visualDiv';
 
 export const createGame = (mode) => {
-  visualDiv();
+  const characterParts = visualDiv();
   const levelElements = playDiv();
 
-  return levelElements;
+  return { levelElements, characterParts };
 };
