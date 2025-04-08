@@ -9,8 +9,8 @@ import { level } from './logic/level';
 import { checkLetter } from './logic/checkLetter';
 import { checkLose } from './logic/checkLose';
 import { checkWin } from './logic/checkWin';
-import { endGame } from '../memory/logic/endGame';
 import { createEndMenu } from '../utils/createEndMenu';
+import { resetGame } from './logic/resetGame';
 
 export const gameData = data.games[2].gameData;
 
@@ -25,30 +25,40 @@ export const hangman = () => {
     button.addEventListener('click', () => {
       const currentMenu = button.parentElement.parentElement.parentElement;
 
-      currentMenu.classList.contains('hidden')
-        ? currentMenu.classList.remove('hidden')
-        : currentMenu.classList.add('hidden');
+      currentMenu.classList.toggle('hidden');
+
+      resetGame(
+        levelElements.wordUl,
+        levelElements.input,
+        levelElements.tryButton,
+        characterParts
+      );
 
       level(button.dataset.mode, levelElements.wordUl, levelElements.hintDiv);
-
-      console.log(levelElements);
     })
   );
 
   levelElements.tryButton.addEventListener('click', (e) => {
-    if (levelElements.input.value.length === 1) {
-      e.preventDefault();
+    e.preventDefault();
 
-      checkLetter(levelElements.input, characterParts);
+    checkLetter(levelElements.input, characterParts, levelElements.failedUl);
 
-      const win = checkWin();
-      const lose = checkLose(characterParts);
+    const win = checkWin();
+    const lose = checkLose(characterParts);
 
-      if (win || lose) {
-        endGame();
-        createEndMenu();
-        // !WORKING ON THIS LOGIC
-      }
+    if (win || lose) {
+      levelElements.input.disabled = true;
+      levelElements.tryButton.disabled = true;
+
+      const endMenu = createEndMenu(2, win || lose);
+
+      endMenu.classList.remove('hidden');
+
+      createGameOptions(2, endMenu);
     }
+  });
+
+  levelElements.hintButton.addEventListener('click', () => {
+    gameData.levelHint.classList.toggle('hidden');
   });
 };

@@ -91,12 +91,12 @@
       font-size: $font-XS;
       align-self: center;
     }
-    ul {
+    #word {
       display: flex;
       align-items: center;
       gap: 2px;
 
-      li {
+      .letter {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -186,6 +186,20 @@
         border: 1px solid $theme-color-5;
         padding: $spacing-XXS;
         border-radius: $spacing-XXS;
+      }
+    }
+    #failed {
+      padding-top: 20px;
+      display: flex;
+      gap: 10px;
+
+      li {
+        p {
+          font-size: $font-XS;
+          text-transform: uppercase;
+          font-weight: 700;
+          color: #ffbcbc;
+        }
       }
     }
   }

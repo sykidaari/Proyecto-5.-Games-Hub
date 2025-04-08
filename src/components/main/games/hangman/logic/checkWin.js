@@ -3,9 +3,7 @@ import { gameData } from '../hangman';
 
 export const checkWin = () => {
   if (
-    !gameData.levelLetters.every((letter) =>
-      letter.classList.contains('hidden')
-    )
+    !gameData.levelLetters.some((letter) => letter.classList.contains('hidden'))
   ) {
     const endText = data.games[2].endMenu.winMessage;
 

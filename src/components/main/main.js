@@ -2,6 +2,7 @@ import { createAndAppendChild } from '../../utils/createAndAppendChild';
 import { games } from './games/games';
 import { sidebar } from './sidebar/sidebar';
 import './_main.scss';
+import './_mediaqueries.scss';
 import { gameFunctions } from './games/gameFunctions';
 
 export const main = () => {

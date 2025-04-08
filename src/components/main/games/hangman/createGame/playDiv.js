@@ -37,5 +37,7 @@ export const playDiv = () => {
     id: 'hint-button'
   });
 
-  return { wordUl, input, tryButton, hintDiv, hintButton };
+  const failedUl = createAndAppendChild(playDiv, 'ul', { id: 'failed' });
+
+  return { wordUl, input, tryButton, hintDiv, hintButton, failedUl };
 };

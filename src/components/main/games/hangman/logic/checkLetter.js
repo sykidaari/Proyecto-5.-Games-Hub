@@ -1,12 +1,17 @@
+import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
 import { gameData } from '../hangman';
 
-export const checkLetter = (input, parts) => {
-  console.log(parts[0]);
-
+export const checkLetter = (input, parts, failedUl) => {
   if (!input.checkValidity()) {
     input.reportValidity();
     return;
   }
+
+  if (gameData.usedLetters.includes(input.value)) {
+    return;
+  }
+
+  gameData.usedLetters.push(input.value);
 
   let correct = false;
 
@@ -22,6 +27,12 @@ export const checkLetter = (input, parts) => {
   if (!correct && gameData.partIndex < parts.length) {
     parts[gameData.partIndex].classList.remove('hidden');
     gameData.partIndex++;
+
+    const failedLi = createAndAppendChild(failedUl, 'li');
+    const failedP = createAndAppendChild(failedLi, 'p', {
+      innerText: input.value
+    });
+    gameData.failedLetters.push(failedLi);
   }
 
   input.value = '';

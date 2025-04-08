@@ -16,16 +16,13 @@ export const gameData = data.games[1].gameData;
 export const memory = () => {
   getGameDiv(1);
   const startMenu = createStartMenu(1);
-
   const optionButtons = createGameOptions(1, startMenu);
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
       const currentMenu = button.parentElement.parentElement.parentElement;
 
-      currentMenu.classList.contains('hidden')
-        ? currentMenu.classList.remove('hidden')
-        : currentMenu.classList.add('hidden');
+      currentMenu.classList.toggle('hidden');
 
       resetGame();
 
@@ -42,9 +39,7 @@ export const memory = () => {
             const endText = endGame();
             const endMenu = createEndMenu(1, endText);
 
-            if (endMenu.classList.contains('hidden')) {
-              endMenu.classList.remove('hidden');
-            }
+            endMenu.classList.remove('hidden');
 
             createGameOptions(1, endMenu);
           }

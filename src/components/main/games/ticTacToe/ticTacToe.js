@@ -24,9 +24,7 @@ export const ticTacToe = () => {
     setTimeout(() => {
       const endMenu = createEndMenu(0, endText);
 
-      if (endMenu.classList.contains('hidden')) {
-        endMenu.classList.remove('hidden');
-      }
+      endMenu.classList.remove('hidden');
 
       createGameOptions(0, endMenu);
     }, 500);
@@ -36,9 +34,7 @@ export const ticTacToe = () => {
     button.addEventListener('click', () => {
       const currentMenu = button.parentElement.parentElement.parentElement;
 
-      currentMenu.classList.contains('hidden')
-        ? currentMenu.classList.remove('hidden')
-        : currentMenu.classList.add('hidden');
+      currentMenu.classList.toggle('hidden');
 
       resetGame();
 

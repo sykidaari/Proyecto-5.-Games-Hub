@@ -125,7 +125,12 @@ export const data = {
           end: '💀'
         },
         partIndex: 0,
-        levelLetters: []
+        levelLetters: [],
+        failedLetters: [],
+
+        usedLetters: [],
+
+        levelHint: {}
       },
       IMGs: {
         gallow: { src: '/assets/IMGs/hangman_gallows.png', alt: 'gallow' }

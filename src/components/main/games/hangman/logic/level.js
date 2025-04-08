@@ -26,4 +26,6 @@ export const level = (mode, ul, hintDiv) => {
     innerText: level.description,
     className: 'hidden'
   });
+
+  gameData.levelHint = hintText;
 };
