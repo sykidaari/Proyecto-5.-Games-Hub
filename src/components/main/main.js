@@ -4,6 +4,7 @@ import { sidebar } from './sidebar/sidebar';
 import './_main.scss';
 import './_mediaqueries.scss';
 import { gameFunctions } from './games/gameFunctions';
+import { data } from './games/data';
 
 export const main = () => {
   const main = createAndAppendChild('#app', 'main');
@@ -11,13 +12,26 @@ export const main = () => {
   games();
 
   sideBarAnchors.forEach((a) => {
-    a.addEventListener('click', () => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+
       const gameDivs = document.querySelectorAll('.game-div');
 
       gameDivs.forEach((div) => (div.innerHTML = ''));
 
-      const fn = gameFunctions[a.dataset.fn];
+      const fnName = a.dataset.fn;
+      const fn = gameFunctions[fnName];
       fn();
+
+      localStorage.setItem('lastGame', fnName);
     });
   });
+
+  const lastGame = localStorage.getItem('lastGame');
+  if (lastGame) {
+    gameFunctions[lastGame]();
+  }
+
+  if (lastGame === data.games[0].function) {
+  }
 };

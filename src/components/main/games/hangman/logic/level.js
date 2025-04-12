@@ -2,13 +2,10 @@ import { createAndAppendChild } from '../../../../../utils/createAndAppendChild'
 import { gameData } from '../hangman';
 
 export const level = (mode, ul, hintDiv) => {
-  console.log('level running in' + mode);
-
   const levels = gameData.levels[mode];
   const randomIndex = Math.floor(Math.random() * levels.length);
 
   const level = levels[randomIndex];
-  console.log(level);
 
   const letters = level.word.split('');
 

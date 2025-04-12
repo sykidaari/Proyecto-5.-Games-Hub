@@ -20,6 +20,8 @@ export const memory = () => {
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
+      localStorage.setItem('game-mode', button.dataset.mode);
+
       const currentMenu = button.parentElement.parentElement.parentElement;
 
       currentMenu.classList.toggle('hidden');

@@ -18,7 +18,5 @@ export const checkMatch = () => {
     gameData.flippedCards = [];
 
     gameData.movesMade += 2;
-
-    console.log(gameData.movesMade);
   }
 };

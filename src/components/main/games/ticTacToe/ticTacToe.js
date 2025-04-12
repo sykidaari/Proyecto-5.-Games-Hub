@@ -10,6 +10,7 @@ import { createGame } from './createGame';
 import { match } from './match/match';
 import { createEndMenu } from '../utils/createEndMenu';
 import { resetGame } from './resetGame';
+import { saveGameStarted } from '../utils/saveGameStarted';
 
 export const gameData = data.games[0].gameData;
 
@@ -32,6 +33,8 @@ export const ticTacToe = () => {
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
+      saveGameStarted(button.dataset.mode);
+
       const currentMenu = button.parentElement.parentElement.parentElement;
 
       currentMenu.classList.toggle('hidden');
