@@ -1,8 +1,12 @@
 import { gameData } from '../../ticTacToe';
-import { checkWin } from '../logic/checkWin';
+
 import { findWinningMove } from '../logic/findWinningMove';
 
 export const computerMove = (player, mode) => {
+  gameData.unplayedSquares = gameData.squares.filter(
+    (square) => square.status === null
+  );
+
   if (gameData.unplayedSquares.length === 0 || gameData.result) return false;
 
   let chosenSquare = null;

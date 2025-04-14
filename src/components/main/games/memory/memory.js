@@ -10,6 +10,7 @@ import { checkMatch } from './logic/checkMatch';
 import { endGame } from './logic/endGame';
 import { createEndMenu } from '../utils/createEndMenu';
 import { resetGame } from './resetGame';
+import { saveGameStarted } from '../utils/saveGameStarted';
 
 export const gameData = data.games[1].gameData;
 
@@ -20,7 +21,7 @@ export const memory = () => {
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
-      localStorage.setItem('game-mode', button.dataset.mode);
+      saveGameStarted(button.dataset.mode);
 
       const currentMenu = button.parentElement.parentElement.parentElement;
 

@@ -3,8 +3,8 @@ import { saveGameState } from '../saveGameState';
 import { computerMove } from './computerMove';
 import { playerMove } from './playerMove';
 
-export const moves = (mode, onMove) => {
-  let currentPlayer = 'X';
+export const moves = (mode, turn, onMove) => {
+  let currentPlayer = turn || 'X';
 
   gameData.buttons.forEach((button, i) => {
     const square = gameData.squares[i];

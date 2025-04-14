@@ -6,10 +6,13 @@ export const createGameOptions = (i, parentTag) => {
 
   if (optionsUl) {
     parentTag.appendChild(optionsUl);
+
+    console.log('yes');
   } else {
     const optionsUl = createAndAppendChild(parentTag, 'ul', {
       className: 'options'
     });
+    console.log('no');
 
     const buttons = [];
 

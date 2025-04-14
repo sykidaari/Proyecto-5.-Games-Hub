@@ -11,6 +11,7 @@ import { checkLose } from './logic/checkLose';
 import { checkWin } from './logic/checkWin';
 import { createEndMenu } from '../utils/createEndMenu';
 import { resetGame } from './logic/resetGame';
+import { saveGameStarted } from '../utils/saveGameStarted';
 
 export const gameData = data.games[2].gameData;
 
@@ -23,7 +24,7 @@ export const hangman = () => {
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
-      localStorage.setItem('game-mode', button.dataset.mode);
+      saveGameStarted(button.dataset.mode);
 
       const currentMenu = button.parentElement.parentElement.parentElement;
 
