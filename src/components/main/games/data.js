@@ -75,6 +75,7 @@ export const data = {
         ],
         cardsInPlay: [],
         flippedCards: [],
+        matchedCards: [],
         movesMade: 0
       }
     },

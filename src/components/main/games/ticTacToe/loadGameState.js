@@ -1,8 +1,8 @@
 import { gameData } from './ticTacToe';
 
 export const loadGameState = (startMenu) => {
-  const board = JSON.parse(localStorage.getItem('ttt-board'));
-  const turn = localStorage.getItem('ttt-turn');
+  const board = JSON.parse(localStorage.getItem('board'));
+  const turn = localStorage.getItem('turn');
   const mode = localStorage.getItem('game-mode');
 
   if (!board || !turn) return null;

@@ -12,7 +12,7 @@ import { createEndMenu } from '../utils/createEndMenu';
 import { resetGame } from './resetGame';
 import { saveGameStarted } from '../utils/saveGameStarted';
 import { loadGameState } from './loadGameState';
-import { checkGameEnd } from './match/checkGameEnd';
+import { checkGameEnd } from './checkGameEnd';
 
 export const gameData = data.games[0].gameData;
 
@@ -44,7 +44,7 @@ export const ticTacToe = () => {
 
       currentMenu.classList.toggle('hidden');
 
-      localStorage.removeItem('ttt-turn');
+      localStorage.removeItem('turn');
 
       turn = 'X';
 

@@ -7,6 +7,7 @@ export const checkMatch = () => {
     if (card1.card.id === card2.card.id && card1.button !== card2.button) {
       card1.matched = card2.matched = true;
       card1.button.disabled = card2.button.disabled = true;
+      gameData.matchedCards.push(card1, card2);
     } else {
       setTimeout(() => {
         card1.button.innerText = card2.button.innerText = '';

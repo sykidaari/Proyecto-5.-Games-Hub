@@ -1,7 +1,7 @@
-import { gameData } from '../ticTacToe';
-import { checkDraw } from './logic/checkDraw';
-import { checkWin } from './logic/checkWin';
-import { endGame } from './logic/endGame';
+import { gameData } from './ticTacToe';
+import { checkDraw } from './match/logic/checkDraw';
+import { checkWin } from './match/logic/checkWin';
+import { endGame } from './match/logic/endGame';
 
 export const checkGameEnd = () => {
   gameData.unplayedSquares = gameData.squares.filter(

@@ -8,9 +8,5 @@ export const playerMove = (player, square, button) => {
 
   button.disabled = true;
 
-  gameData.unplayedSquares = gameData.squares.filter(
-    (square) => square.status === null
-  );
-
   return true;
 };

@@ -31,7 +31,4 @@ export const main = () => {
   if (lastGame) {
     gameFunctions[lastGame]();
   }
-
-  if (lastGame === data.games[0].function) {
-  }
 };

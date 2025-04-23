@@ -3,14 +3,15 @@ import './_memory.scss';
 import { data } from '../data';
 import { createGameOptions } from '../utils/createGameOptions';
 import { createStartMenu } from '../utils/createStartMenu';
+import { createEndMenu } from '../utils/createEndMenu';
 import { getGameDiv } from '../utils/getGameDiv';
 import { createGame } from './createGame';
-import { showCard } from './logic/showCard';
-import { checkMatch } from './logic/checkMatch';
-import { endGame } from './logic/endGame';
-import { createEndMenu } from '../utils/createEndMenu';
+
 import { resetGame } from './resetGame';
 import { saveGameStarted } from '../utils/saveGameStarted';
+
+import { match } from './match';
+import { endGame } from './logic/endGame';
 
 export const gameData = data.games[1].gameData;
 
@@ -18,6 +19,17 @@ export const memory = () => {
   getGameDiv(1);
   const startMenu = createStartMenu(1);
   const optionButtons = createGameOptions(1, startMenu);
+
+  let mode;
+
+  const gameEnded = () => {
+    const endText = endGame();
+    const endMenu = createEndMenu(1, endText);
+
+    endMenu.classList.remove('hidden');
+
+    createGameOptions(1, endMenu);
+  };
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
@@ -31,23 +43,12 @@ export const memory = () => {
 
       createGame(button.dataset.mode);
 
-      gameData.cardsInPlay.forEach((card) => {
-        card.button.addEventListener('click', () => {
-          showCard(card);
-          checkMatch();
+      localStorage.setItem(
+        'm-board',
+        JSON.stringify(gameData.cardsInPlay.map((card) => card.card))
+      );
 
-          const allMatched = gameData.cardsInPlay.every((card) => card.matched);
-
-          if (allMatched) {
-            const endText = endGame();
-            const endMenu = createEndMenu(1, endText);
-
-            endMenu.classList.remove('hidden');
-
-            createGameOptions(1, endMenu);
-          }
-        });
-      });
+      match(gameEnded);
     })
   );
 };

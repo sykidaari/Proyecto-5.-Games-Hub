@@ -1,5 +1,5 @@
 import { gameData } from '../../ticTacToe';
-import { saveGameState } from '../saveGameState';
+import { saveGameState } from '../../saveGameState';
 import { computerMove } from './computerMove';
 import { playerMove } from './playerMove';
 
