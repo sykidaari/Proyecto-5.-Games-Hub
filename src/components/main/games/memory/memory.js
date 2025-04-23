@@ -12,10 +12,13 @@ import { saveGameStarted } from '../utils/saveGameStarted';
 
 import { match } from './match';
 import { endGame } from './logic/endGame';
+import { loadGameState } from './loadGameState';
 
 export const gameData = data.games[1].gameData;
 
 export const memory = () => {
+  console.log('memory running');
+
   getGameDiv(1);
   const startMenu = createStartMenu(1);
   const optionButtons = createGameOptions(1, startMenu);
@@ -44,11 +47,13 @@ export const memory = () => {
       createGame(button.dataset.mode);
 
       localStorage.setItem(
-        'm-board',
+        'board',
         JSON.stringify(gameData.cardsInPlay.map((card) => card.card))
       );
 
       match(gameEnded);
     })
   );
+
+  const saved = loadGameState(startMenu);
 };

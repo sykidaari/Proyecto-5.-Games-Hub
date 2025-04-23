@@ -18,11 +18,11 @@ export const createGame = (mode) => {
 
   const shuffledCards = cardPairs.sort(() => Math.random() - 0.5);
 
-  shuffledCards.forEach((card) => {
+  shuffledCards.forEach((card, i) => {
     const cardButton = createAndAppendChild(cardsDiv, 'button', {
       className: 'card'
     });
 
-    gameData.cardsInPlay.push({ button: cardButton, card });
+    gameData.cardsInPlay.push({ button: cardButton, card, i });
   });
 };

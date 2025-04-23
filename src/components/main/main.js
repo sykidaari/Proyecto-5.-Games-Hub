@@ -23,11 +23,11 @@ export const main = () => {
       const fn = gameFunctions[fnName];
       fn();
 
-      localStorage.setItem('lastGame', fnName);
+      localStorage.setItem('last-game', fnName);
     });
   });
 
-  const lastGame = localStorage.getItem('lastGame');
+  const lastGame = localStorage.getItem('last-game');
   if (lastGame) {
     gameFunctions[lastGame]();
   }
