@@ -26,6 +26,7 @@ export const memory = () => {
   let mode;
 
   const gameEnded = () => {
+    console.log('gameended running');
     const endText = endGame();
     const endMenu = createEndMenu(1, endText);
 
@@ -56,4 +57,8 @@ export const memory = () => {
   );
 
   const saved = loadGameState(startMenu);
+
+  if (saved) {
+    match(gameEnded);
+  }
 };

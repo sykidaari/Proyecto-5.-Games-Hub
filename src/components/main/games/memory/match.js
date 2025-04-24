@@ -5,6 +5,13 @@ import { gameData } from './memory';
 import { saveGameState } from './saveGameState';
 
 export const match = (gameEnded) => {
+  const board = JSON.parse(localStorage.getItem('board'));
+  const matchedCards = JSON.parse(localStorage.getItem('matched-cards'));
+
+  if (matchedCards && board && matchedCards.length === board.length) {
+    gameEnded();
+  }
+
   gameData.cardsInPlay.forEach((card) => {
     card.button.addEventListener('click', () => {
       showCard(card);
@@ -12,9 +19,10 @@ export const match = (gameEnded) => {
 
       saveGameState();
 
-      const allMatched = gameData.cardsInPlay.every((card) => card.matched);
+      const matchedCards = JSON.parse(localStorage.getItem('matched-cards'));
+      const board = JSON.parse(localStorage.getItem('board'));
 
-      if (allMatched) {
+      if (matchedCards && board && matchedCards.length === board.length) {
         gameEnded();
       }
     });
