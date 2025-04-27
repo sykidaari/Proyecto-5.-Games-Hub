@@ -26,7 +26,6 @@ export const ticTacToe = () => {
 
   createGame();
 
-  let mode;
   let turn;
 
   const gameEnded = (endText) => {
@@ -46,9 +45,7 @@ export const ticTacToe = () => {
       saveGameStarted(gameMode);
 
       const currentMenu = button.closest('.game-menu');
-      currentMenu.classList.toggle('hidden');
-
-      localStorage.removeItem('turn');
+      currentMenu.classList.add('hidden');
 
       turn = 'X';
 

@@ -36,7 +36,7 @@ export const hangman = () => {
       saveGameStarted(gameMode);
 
       const currentMenu = button.closest('.game-menu');
-      currentMenu.classList.toggle('hidden');
+      currentMenu.classList.add('hidden');
 
       resetGame(wordUl, input, tryButton, characterParts);
 

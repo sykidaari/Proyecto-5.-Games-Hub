@@ -2,7 +2,7 @@ import { checkMatch } from './logic/checkMatch';
 import { endGame } from './logic/endGame';
 import { showCard } from './logic/showCard';
 import { gameData } from './memory';
-import { saveGameState } from './saveGameState';
+import { saveGameState } from './localHost/saveGameState';
 
 export const match = (gameEnded) => {
   const board = JSON.parse(localStorage.getItem('board'));

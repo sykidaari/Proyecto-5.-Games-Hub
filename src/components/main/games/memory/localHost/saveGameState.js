@@ -1,4 +1,4 @@
-import { gameData } from './memory';
+import { gameData } from '../memory';
 
 export const saveGameState = () => {
   localStorage.setItem(

@@ -18,8 +18,6 @@ export const checkMatch = () => {
     }
     gameData.flippedCards = [];
 
-    console.log(gameData.matchedCards);
-
     gameData.movesMade += 2;
   }
 };

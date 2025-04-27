@@ -1,15 +1,17 @@
-import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
-import { game } from '../utils/getGameDiv';
-import { gameData } from './memory';
+import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
+import { game } from '../../utils/getGameDiv';
+import { gameData } from '../memory';
 
 export const loadGameState = (startMenu) => {
+  gameData.cardsInPlay = [];
+  gameData.flippedCards = [];
+  gameData.matchedCards = [];
+
   const board = JSON.parse(localStorage.getItem('board'));
   const mode = localStorage.getItem('game-mode');
   const matchedCards = JSON.parse(localStorage.getItem('matched-cards'));
   const flippedCards = JSON.parse(localStorage.getItem('flipped-cards'));
   const movesMade = localStorage.getItem('moves-made');
-
-  console.log(gameData.matchedCards);
 
   if (!board || !matchedCards || !flippedCards) return null;
 

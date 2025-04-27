@@ -1,10 +1,12 @@
 import { data } from '../../data';
-import { gameData } from '../memory';
+import { gameData, genData } from '../memory';
 
 export const endGame = () => {
-  data.games[1].endMenu.winMessage[1] = gameData.movesMade;
+  const winMessage = genData.endMenu.winMessage;
 
-  const endText = data.games[1].endMenu.winMessage.join(' ');
+  winMessage[1] = gameData.movesMade;
+
+  const endText = winMessage.join(' ');
 
   return endText;
 };
