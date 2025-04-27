@@ -1,11 +1,21 @@
 import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
 import { gameData } from '../hangman';
 
-export const level = (mode, ul, hintDiv) => {
-  const levels = gameData.levels[mode];
-  const randomIndex = Math.floor(Math.random() * levels.length);
+export const createLevel = (mode, ul, hintDiv) => {
+  let level;
 
-  const level = levels[randomIndex];
+  const savedLevel = localStorage.getItem('level');
+
+  if (savedLevel) {
+    level = JSON.parse(savedLevel);
+  } else {
+    const levels = gameData.levels[mode];
+    const randomIndex = Math.floor(Math.random() * levels.length);
+
+    level = levels[randomIndex];
+
+    localStorage.setItem('level', JSON.stringify(level));
+  }
 
   const letters = level.word.split('');
 

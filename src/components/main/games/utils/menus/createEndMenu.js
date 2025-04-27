@@ -1,14 +1,14 @@
-import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
-import { data } from '../data';
+import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
+import { data } from '../../data';
 
-import { game } from './getGameDiv';
+import { game } from '../getGameDiv';
 
 export const createEndMenu = (i, endText) => {
   let endDiv = document.querySelector('.end-menu');
 
   if (!endDiv) {
     endDiv = createAndAppendChild(game, 'div', {
-      className: 'end-menu',
+      className: 'end-menu game-menu',
       id: `${game.id}-end-menu`
     });
 

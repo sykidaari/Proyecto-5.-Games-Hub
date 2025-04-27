@@ -1,9 +1,10 @@
-import { gameData } from './ticTacToe';
+import { gameData } from '../ticTacToe';
 
 export const loadGameState = (startMenu) => {
   const board = JSON.parse(localStorage.getItem('board'));
   const turn = localStorage.getItem('turn');
   const mode = localStorage.getItem('game-mode');
+  const result = localStorage.getItem('result');
 
   if (!board || !turn) return null;
 
@@ -27,5 +28,5 @@ export const loadGameState = (startMenu) => {
     }
   });
 
-  return { turn, mode };
+  return { turn, mode, result };
 };

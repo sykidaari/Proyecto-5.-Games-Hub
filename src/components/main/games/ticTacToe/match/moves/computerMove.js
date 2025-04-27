@@ -3,11 +3,12 @@ import { gameData } from '../../ticTacToe';
 import { findWinningMove } from '../logic/findWinningMove';
 
 export const computerMove = (player, mode) => {
-  gameData.unplayedSquares = gameData.squares.filter(
-    (square) => square.status === null
-  );
+  const { squares, result, buttons } = gameData;
+  let { unplayedSquares } = gameData;
 
-  if (gameData.unplayedSquares.length === 0 || gameData.result) return false;
+  unplayedSquares = squares.filter((square) => square.status === null);
+
+  if (unplayedSquares.length === 0 || result) return false;
 
   let chosenSquare = null;
 
@@ -18,19 +19,17 @@ export const computerMove = (player, mode) => {
       chosenSquare = findWinningMove('X');
     }
 
-    if (!chosenSquare && gameData.squares[4].status === null) {
-      chosenSquare = gameData.squares[4];
+    if (!chosenSquare && squares[4].status === null) {
+      chosenSquare = squares[4];
     }
   }
 
   if (!chosenSquare) {
-    const randomIndex = Math.floor(
-      Math.random() * gameData.unplayedSquares.length
-    );
-    chosenSquare = gameData.unplayedSquares[randomIndex];
+    const randomIndex = Math.floor(Math.random() * unplayedSquares.length);
+    chosenSquare = unplayedSquares[randomIndex];
   }
 
-  const button = gameData.buttons[chosenSquare.number - 1];
+  const button = buttons[chosenSquare.number - 1];
 
   chosenSquare.status = player;
   button.innerText = chosenSquare.status;

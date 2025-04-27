@@ -1,67 +1,93 @@
 import './_hangman.scss';
 
-import { createGameOptions } from '../utils/createGameOptions';
-import { createStartMenu } from '../utils/createStartMenu';
+import { createGameOptions } from '../utils/menus/createGameOptions';
+import { createStartMenu } from '../utils/menus/createStartMenu';
 import { getGameDiv } from '../utils/getGameDiv';
 import { createGame } from './createGame/createGame';
 import { data } from '../data';
-import { level } from './logic/level';
+import { createLevel } from './logic/createLevel';
 import { checkLetter } from './logic/checkLetter';
 import { checkLose } from './logic/checkLose';
 import { checkWin } from './logic/checkWin';
-import { createEndMenu } from '../utils/createEndMenu';
-import { resetGame } from './logic/resetGame';
+import { createEndMenu } from '../utils/menus/createEndMenu';
+import { resetGame } from './resetGame';
 import { saveGameStarted } from '../utils/saveGameStarted';
+import { loadSaved } from './localHost/loadSaved';
+import { loadGameState } from './localHost/loadGameState';
 
-export const gameData = data.games[2].gameData;
+export const gamesIndex = 2;
+
+export const genData = data.games[gamesIndex];
+export const gameData = genData.gameData;
 
 export const hangman = () => {
-  getGameDiv(2);
-  const startMenu = createStartMenu(2);
-  const optionButtons = createGameOptions(2, startMenu);
+  getGameDiv(gamesIndex);
+  const startMenu = createStartMenu(gamesIndex);
+  const optionButtons = createGameOptions(gamesIndex, startMenu);
 
   const { levelElements, characterParts } = createGame();
+  const { wordUl, input, tryButton, hintDiv, hintButton, failedUl } =
+    levelElements;
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
-      saveGameStarted(button.dataset.mode);
+      const gameMode = button.dataset.mode;
 
-      const currentMenu = button.parentElement.parentElement.parentElement;
+      saveGameStarted(gameMode);
 
+      const currentMenu = button.closest('.game-menu');
       currentMenu.classList.toggle('hidden');
 
-      resetGame(
-        levelElements.wordUl,
-        levelElements.input,
-        levelElements.tryButton,
-        characterParts
-      );
+      resetGame(wordUl, input, tryButton, characterParts);
 
-      level(button.dataset.mode, levelElements.wordUl, levelElements.hintDiv);
+      createLevel(button.dataset.mode, wordUl, hintDiv);
     })
   );
 
-  levelElements.tryButton.addEventListener('click', (e) => {
+  const gameEnd = (result) => {
+    input.disabled = true;
+    tryButton.disabled = true;
+
+    const endMenu = createEndMenu(gamesIndex, result);
+
+    endMenu.classList.remove('hidden');
+
+    createGameOptions(gamesIndex, endMenu);
+  };
+
+  const saved = loadSaved(startMenu);
+
+  if (saved) {
+    const { usedLetters, partIndex } = saved;
+
+    createLevel(null, wordUl, hintDiv);
+
+    if (usedLetters) {
+      loadGameState(usedLetters, partIndex);
+
+      const win = checkWin();
+      const lose = checkLose(characterParts);
+
+      if (win || lose) {
+        gameEnd(win || lose);
+      }
+    }
+  }
+
+  tryButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    checkLetter(levelElements.input, characterParts, levelElements.failedUl);
+    checkLetter(input, characterParts, failedUl);
 
     const win = checkWin();
     const lose = checkLose(characterParts);
 
     if (win || lose) {
-      levelElements.input.disabled = true;
-      levelElements.tryButton.disabled = true;
-
-      const endMenu = createEndMenu(2, win || lose);
-
-      endMenu.classList.remove('hidden');
-
-      createGameOptions(2, endMenu);
+      gameEnd(win || lose);
     }
   });
 
-  levelElements.hintButton.addEventListener('click', () => {
+  hintButton.addEventListener('click', () => {
     gameData.levelHint.classList.toggle('hidden');
   });
 };

@@ -1,9 +1,9 @@
 import './_memory.scss';
 
 import { data } from '../data';
-import { createGameOptions } from '../utils/createGameOptions';
-import { createStartMenu } from '../utils/createStartMenu';
-import { createEndMenu } from '../utils/createEndMenu';
+import { createGameOptions } from '../utils/menus/createGameOptions';
+import { createStartMenu } from '../utils/menus/createStartMenu';
+import { createEndMenu } from '../utils/menus/createEndMenu';
 import { getGameDiv } from '../utils/getGameDiv';
 import { createGame } from './createGame';
 

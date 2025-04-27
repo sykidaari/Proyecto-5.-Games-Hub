@@ -1,5 +1,5 @@
 import { gameData } from '../../ticTacToe';
-import { saveGameState } from '../../saveGameState';
+import { saveGameState } from '../../localHost/saveGameState';
 import { computerMove } from './computerMove';
 import { playerMove } from './playerMove';
 
@@ -22,24 +22,18 @@ export const moves = (mode, turn, onMove) => {
           if (moveMade) {
             onMove(currentPlayer);
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-
-            saveGameState(currentPlayer);
           }
         } else {
           moveMade = playerMove('X', square, button);
 
           if (moveMade) {
             onMove('X');
-
-            saveGameState('X');
           }
 
           setTimeout(() => {
             moveMade = computerMove('O', mode);
             if (moveMade) {
               onMove('O');
-
-              saveGameState('O');
             }
           }, 500);
         }

@@ -11,14 +11,16 @@ export const checkLetter = (input, parts, failedUl) => {
     return;
   }
 
+  let usedLetters = JSON.parse(localStorage.getItem('used-letters')) || [];
+
+  if (usedLetters.includes(input.value)) return;
+
   gameData.usedLetters.push(input.value);
 
   let correct = false;
 
   gameData.levelLetters.forEach((letter) => {
     if (input.value.toLowerCase() === letter.innerText) {
-      console.log(letter);
-
       correct = true;
       letter.classList.remove('hidden');
     }
@@ -34,6 +36,13 @@ export const checkLetter = (input, parts, failedUl) => {
     });
     gameData.failedLetters.push(failedLi);
   }
+
+  if (!usedLetters.includes(input.value)) {
+    usedLetters.push(input.value);
+    localStorage.setItem('used-letters', JSON.stringify(usedLetters));
+  }
+
+  localStorage.setItem('part-index', gameData.partIndex);
 
   input.value = '';
 };

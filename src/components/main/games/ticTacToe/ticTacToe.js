@@ -4,22 +4,25 @@ import { data } from '../data';
 
 import { getGameDiv } from '../utils/getGameDiv';
 
-import { createStartMenu } from '../utils/createStartMenu';
-import { createGameOptions } from '../utils/createGameOptions';
+import { createStartMenu } from '../utils/menus/createStartMenu';
+import { createGameOptions } from '../utils/menus/createGameOptions';
 import { createGame } from './createGame';
 import { match } from './match/match';
-import { createEndMenu } from '../utils/createEndMenu';
+import { createEndMenu } from '../utils/menus/createEndMenu';
 import { resetGame } from './resetGame';
 import { saveGameStarted } from '../utils/saveGameStarted';
-import { loadGameState } from './loadGameState';
-import { checkGameEnd } from './checkGameEnd';
+import { loadGameState } from './localHost/loadGameState';
+import { endGame } from './match/logic/endGame';
 
-export const gameData = data.games[0].gameData;
+export const gamesIndex = 0;
+
+export const genData = data.games[gamesIndex];
+export const gameData = genData.gameData;
 
 export const ticTacToe = () => {
-  getGameDiv(0);
-  const startMenu = createStartMenu(0);
-  const optionButtons = createGameOptions(0, startMenu);
+  getGameDiv(gamesIndex);
+  const startMenu = createStartMenu(gamesIndex);
+  const optionButtons = createGameOptions(gamesIndex, startMenu);
 
   createGame();
 
@@ -28,7 +31,7 @@ export const ticTacToe = () => {
 
   const gameEnded = (endText) => {
     setTimeout(() => {
-      const endMenu = createEndMenu(0, endText);
+      const endMenu = createEndMenu(gamesIndex, endText);
 
       endMenu.classList.remove('hidden');
 
@@ -38,10 +41,11 @@ export const ticTacToe = () => {
 
   optionButtons.forEach((button) =>
     button.addEventListener('click', () => {
-      saveGameStarted(button.dataset.mode);
+      const gameMode = button.dataset.mode;
 
-      const currentMenu = button.parentElement.parentElement.parentElement;
+      saveGameStarted(gameMode);
 
+      const currentMenu = button.closest('.game-menu');
       currentMenu.classList.toggle('hidden');
 
       localStorage.removeItem('turn');
@@ -50,19 +54,23 @@ export const ticTacToe = () => {
 
       resetGame();
 
-      match(button.dataset.mode, turn, gameEnded);
+      match(gameMode, turn, gameEnded);
     })
   );
 
   const saved = loadGameState(startMenu);
 
   if (saved) {
-    mode = saved.mode;
-    turn = saved.turn;
+    const { mode, turn, result } = saved;
 
-    const endText = checkGameEnd();
-    if (endText) {
-      gameEnded(endText);
+    if (result) {
+      if (result === 'X' || result === 'O') {
+        const endText = endGame(result);
+        gameEnded(endText);
+      } else {
+        const endText = endGame();
+        gameEnded(endText);
+      }
     } else {
       match(mode, turn, gameEnded);
     }

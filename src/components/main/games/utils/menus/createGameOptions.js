@@ -1,5 +1,5 @@
-import { createAndAppendChild } from '../../../../utils/createAndAppendChild';
-import { data } from '../data';
+import { createAndAppendChild } from '../../../../../utils/createAndAppendChild';
+import { data } from '../../data';
 
 export const createGameOptions = (i, parentTag) => {
   const optionsUl = document.querySelector('.options');

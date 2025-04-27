@@ -1,4 +1,4 @@
-import { gameData } from '../hangman';
+import { gameData } from './hangman';
 
 export const resetGame = (wordUl, input, tryButton, characterParts) => {
   wordUl.innerHTML = '';
