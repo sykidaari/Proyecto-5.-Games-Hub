@@ -1,4 +1,5 @@
 import './_memory.scss';
+import './_mediaqueries.scss';
 
 import { data } from '../data';
 import { createGameOptions } from '../utils/menus/createGameOptions';

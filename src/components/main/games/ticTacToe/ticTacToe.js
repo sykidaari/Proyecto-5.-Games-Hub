@@ -1,4 +1,5 @@
 import './_ticTacToe.scss';
+import './_mediaqueries.scss';
 
 import { data } from '../data';
 

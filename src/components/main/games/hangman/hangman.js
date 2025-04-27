@@ -1,4 +1,5 @@
 import './_hangman.scss';
+import './_mediaqueries.scss';
 
 import { createGameOptions } from '../utils/menus/createGameOptions';
 import { createStartMenu } from '../utils/menus/createStartMenu';

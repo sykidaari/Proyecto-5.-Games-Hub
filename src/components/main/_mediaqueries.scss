@@ -1,5 +1,9 @@
+@import '../../global';
+
 @media (max-width: 900px) {
   main {
     grid-template-columns: 1fr;
+    padding-left: $spacing-XS;
+    padding-right: $spacing-XS;
   }
 }

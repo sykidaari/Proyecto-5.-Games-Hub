@@ -1,0 +1,20 @@
+@import '../../../../global';
+
+@media (max-width: 450px) {
+  #memory #cards-grid {
+    gap: 3px;
+    .card {
+      width: 40px;
+      height: 40px;
+      font-size: $font-SM;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  #memory #cards-grid .card {
+    width: 35px;
+    height: 35px;
+    font-size: $font-S;
+  }
+}

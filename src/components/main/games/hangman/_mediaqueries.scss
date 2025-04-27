@@ -1,0 +1,61 @@
+@import '../../../../global';
+
+@media (max-width: 650px) {
+  #hangman {
+    align-items: flex-end;
+    padding-bottom: $spacing-S;
+    #play-div {
+      h3 {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #word {
+        position: absolute;
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  #hangman {
+    align-items: flex-end;
+    padding-bottom: $spacing-S;
+    #play-div {
+      background-color: $theme-color-3;
+
+      :not(h3, #word, #word *, #failed *) {
+        position: absolute;
+      }
+      form label {
+        padding: $spacing-XS;
+        background-color: $theme-color-3;
+        bottom: 150px;
+
+        border-radius: $spacing-XXS;
+      }
+      #letter-input {
+        bottom: 120px;
+        right: 35px;
+      }
+      #try-button {
+        bottom: 118px;
+      }
+      #hint-div {
+        bottom: 90px;
+        right: 35px;
+
+        #hint-text {
+          background-color: $theme-color-3;
+        }
+      }
+      #failed {
+        bottom: 30px;
+      }
+    }
+  }
+}
