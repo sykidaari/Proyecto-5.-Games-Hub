@@ -1,12 +1,19 @@
 import { createAndAppendChild } from '../../../utils/createAndAppendChild';
 import { data as gamesData } from '../games/data';
 import './_sidebar.scss';
+import './_mediaqueries.scss';
 
 export const sidebar = () => {
   const sidebar = createAndAppendChild('main', 'div', { id: 'sidebar' });
 
   const title = createAndAppendChild(sidebar, 'h3', { innerText: 'Menu' });
-  const nav = createAndAppendChild(sidebar, 'nav');
+
+  const nav = createAndAppendChild(sidebar, 'nav', { className: 'hidden2' });
+
+  title.addEventListener('click', () => {
+    nav.classList.toggle('hidden2');
+  });
+
   const ul = createAndAppendChild(nav, 'ul');
 
   const sideBarAnchors = [];

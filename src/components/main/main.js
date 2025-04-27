@@ -4,7 +4,6 @@ import { sidebar } from './sidebar/sidebar';
 import './_main.scss';
 import './_mediaqueries.scss';
 import { gameFunctions } from './games/gameFunctions';
-import { data } from './games/data';
 
 export const main = () => {
   const main = createAndAppendChild('#app', 'main');

@@ -2,8 +2,12 @@
 
 #games {
   height: 350px;
+  display: flex;
+  justify-content: center;
 
   > ul {
+    max-width: 600px;
+
     height: 100%;
     width: 100%;
 
@@ -33,7 +37,7 @@
 
         border-radius: $spacing-XXS;
 
-        .start-menu {
+        .game-menu {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -44,7 +48,8 @@
           backdrop-filter: blur(1px);
           -webkit-backdrop-filter: blur(1px);
           position: absolute;
-
+        }
+        .start-menu {
           inset: $spacing-XXS;
 
           background-color: $menu-color;
@@ -52,34 +57,24 @@
           border-radius: $spacing-XXS;
 
           h2 {
-            font-size: $font-L;
+            font-size: $font-ML;
             color: $theme-color-5;
             font-weight: 800;
+            text-transform: uppercase;
 
             padding: $spacing-XS;
             background-color: $theme-color-3;
             box-shadow: 0 0 5px 0 $theme-color-5;
-            border-radius: $spacing-S;
+            border-radius: $spacing-XXS;
           }
         }
         .end-menu {
           animation: fade-in 0.5s ease forwards;
 
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          gap: $spacing-S;
-
-          z-index: 100;
-          backdrop-filter: blur(1px);
-          -webkit-backdrop-filter: blur(1px);
-          position: absolute;
-
           padding: $spacing-S;
 
           background-color: $menu-color;
-          border-radius: $spacing-S;
+          border-radius: $spacing-XXS;
 
           top: 50%;
           left: 50%;
@@ -113,7 +108,7 @@
             color: $theme-color-2;
             background-color: $theme-color-1;
             padding: $spacing-XXS;
-            border-radius: $spacing-XS;
+            border-radius: $spacing-XXS;
             box-shadow: 0 0 5px 0 $theme-color-4;
 
             &:hover {

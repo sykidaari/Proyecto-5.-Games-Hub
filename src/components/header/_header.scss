@@ -1,26 +1,28 @@
 @import '../../global';
 
 header {
-  background-color: $theme-color-4;
+  background: linear-gradient(to bottom, $theme-color-3, $theme-color-2);
   height: 50px;
-
-  box-shadow: 0 1px $spacing-SM 0 $theme-color-4;
 
   position: fixed;
   top: 0;
 
   width: 100%;
 
+  border: 1px solid $theme-color-4;
+  box-shadow: inset 0 0 5px 0 $theme-color-4;
+
   nav {
     height: 100%;
     display: flex;
     align-items: center;
     a {
+      text-transform: uppercase;
+      letter-spacing: 10px;
       font-size: $font-SM;
       font-weight: 800;
       margin-left: $spacing-S;
       padding: $spacing-XXS;
-      border: 1px solid $theme-color-1;
     }
   }
 }
