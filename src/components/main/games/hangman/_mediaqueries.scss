@@ -5,6 +5,7 @@
     align-items: flex-end;
     padding-bottom: $spacing-S;
     #play-div {
+      padding-bottom: 50px;
       h3 {
         position: absolute;
         top: 10px;
@@ -16,6 +17,10 @@
         top: 40px;
         left: 50%;
         transform: translateX(-50%);
+      }
+      #failed {
+        position: absolute;
+        bottom: 30px;
       }
     }
   }
