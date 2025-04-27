@@ -29,5 +29,8 @@ export const main = () => {
   const lastGame = localStorage.getItem('last-game');
   if (lastGame) {
     gameFunctions[lastGame]();
+  } else {
+    const firstGame = Object.keys(gameFunctions)[0];
+    gameFunctions[firstGame]();
   }
 };
