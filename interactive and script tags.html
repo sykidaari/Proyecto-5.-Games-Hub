@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <details>
+      <summary>Más información</summary>
+      <h2>Nombre</h2>
+      <img src="foto.jpg" alt="Foto" />
+    </details>
+
+    <dialog id="alert">
+      <p>¡Hola!</p>
+      <button id="close" onclick="document.getElementById('alert').close()">
+        Ok!
+      </button>
+    </dialog>
+    <button id="show" onclick="document.getElementById('alert').show()">
+      Mostrar
+    </button>
+
+    <dialog id="gandalfModal">
+      <img src="gandalf.jpg" alt="Gandalf" />
+      <p>¡NO.. PUEDES... PASAR!</p>
+      <button
+        id="close"
+        onclick="document.getElementById('gandalfModal').close()"
+      >
+        Ok!
+      </button>
+    </dialog>
+    <button
+      id="show"
+      onclick="document.getElementById('gandalfModal').showModal()"
+    >
+      Mostrar
+    </button>
+
+    <h3 contenteditable>Título</h3>
+    <div contenteditable>
+      <p>Este es un párrafo modificable de ejemplo</p>
+    </div>
+
+    <script>
+      alert('¡Hola!')
+    </script>
+
+    <script src="/script.js"></script>
+
+    <script type="module">
+      import { pi } from './pi-module.js'
+    </script>
+
+    <script type="module">
+      import { pi } from './pi-module.js'
+    </script>
+
+    <script type="module">
+      /* Código para navegadores modernos */
+      import { pi } from './pi-module.js'
+    </script>
+    <script nomodule>
+      /* Código para navegadores antiguos */
+    </script>
+
+    <table id="tabla">
+      <tr>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Calificación</th>
+      </tr>
+      <template id="usuario">
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+      </template>
+    </table>
+
+    <div>
+      <img
+        src="gandalf.jpg"
+        alt="Gandalf"
+        onClick="alert('¡Has hecho clic!')"
+      />
+    </div>
+  </body>
+</html>
