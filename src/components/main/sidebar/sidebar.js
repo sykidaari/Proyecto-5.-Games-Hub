@@ -1,7 +1,9 @@
-import { createAndAppendChild } from '../../../utils/createAndAppendChild';
-import { data as gamesData } from '../games/data';
 import './_sidebar.scss';
 import './_mediaqueries.scss';
+
+import { createAndAppendChild } from '../../../utils/createAndAppendChild';
+
+import { data as gamesData } from '../games/data';
 
 export const sidebar = () => {
   const sidebar = createAndAppendChild('main', 'div', { id: 'sidebar' });
